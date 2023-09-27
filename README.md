@@ -14,3 +14,8 @@ pip3 install selenium beautifulsoup4 pyperclip
 ```
 python3 get_cves.py
 ```
+
+# Extract CVEs
+```
+./get_cves.sh
+```
