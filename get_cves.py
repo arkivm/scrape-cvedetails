@@ -32,7 +32,8 @@ def get_cves_list(driver, year):
     print(url)
     driver.get(url)
     accept_consent(driver)
-    elements = driver.find_elements(By.XPATH, "//div[@class='flex-grow-1 paging']")
+    elements = driver.find_elements(By.XPATH, "//div[@class='col-auto flex-fill paging']")
+    print(elements)
     for e in elements:
         inner_html = e.get_attribute('innerHTML')
         soup = BeautifulSoup(inner_html)
@@ -56,7 +57,7 @@ def get_csv_data(driver, url_list, f):
         f.write(cve_data)
     f.close()
 
-for year in range(2014, 2023 + 1):
+for year in range(2023, 2024):
     f = open("linux-cves-" + str(year) + ".csv", "a")
     driver.get(LINUX_CVES.format("1", year))
     accept_consent(driver)
